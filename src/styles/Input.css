@@ -1,0 +1,23 @@
+.input-wrapper {
+  height: 10em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.result {
+  flex: 1;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.result>h1 {
+  margin: 0;
+}
+
+.text {
+  flex: 1;
+  font-size: 18px;
+}
