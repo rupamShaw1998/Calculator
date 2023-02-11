@@ -1,0 +1,52 @@
+How many ways to convert an Object {} into an Array [] and Array [] into an Object {} in JavaScript?
+
+Ans: 
+
+To convert an object to an array we use one of three methods: Object.keys() , Object.values() , and Object.entries().
+eg:
+const person = {
+    firstName: 'Rupam',
+    lastName: 'Shaw'
+};
+
+1.
+const propertyNames = Object.keys(person);
+console.log(propertyNames);  // It will give output as : [ 'firstName', 'lastName' ]
+
+2.
+const propertyValues = Object.values(person);
+console.log(propertyValues);  // It will give output as : [ 'Rupam', 'Shaw' ]
+
+3.
+const entries = Object.entries(person);
+console.log(entries);   // [ [ 'firstName', 'Rupam' ], [ 'lastName', 'Shaw' ] ]
+
+
+
+
+To convert an array to an object we use one of four methods: Object.assign(), spread operator, array.forEach(), array.fromEntries.
+eg:
+const names = ['Alex', 'Bob', 'Johny', 'Atta'];
+
+1.
+const obj = Object.assign({}, names);
+console.log(obj);   // output: { '0': 'Alex', '1': 'Bob', '2': 'Johny', '3': 'Atta' }
+
+2.
+const obj = { ...names };
+console.log(obj);   // output: { '0': 'Alex', '1': 'Bob', '2': 'Johny', '3': 'Atta' }
+
+3.
+const obj = {}
+
+names.forEach((elem, i) => {obj[i] = elem});
+console.log(obj);   // output: { 0: "Alex", 1: "Bob", 2: "Johny", 3: "Atta" }
+
+4.
+const props = [
+  ['name', 'John Doe'],
+  ['age', 29]
+];
+
+const obj = Object.fromEntries(props);
+console.log(obj);   // output: { name: 'John Doe', age: 29 }
