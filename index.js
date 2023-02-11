@@ -20,7 +20,7 @@ app.get("/", async (req, res) => {
   }
   const result = a + opStr + b;
   try {
-    return res.status(200).send({ a, b, op, c: eval(result) });
+    return res.status(200).send({ a, b, op, c: parseFloat(eval(result).toFixed(6)) });
   } 
   catch (err) {
     return res.status(400).send({ message: err.message });

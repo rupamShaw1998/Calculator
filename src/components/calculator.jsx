@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { calculate } from "../redux/action";
 import "../styles/calculator.css";
 import Button from "./Button";
 import Input from "./Input";
@@ -6,6 +8,14 @@ import Input from "./Input";
 const Calculator = () => {
   const [text, setText] = useState("");
   const [result, setResult] = useState("");
+
+  const dispatch = useDispatch();
+
+  const { data } = useSelector((state) => state);
+
+  useEffect(() => {
+    setResult(data.c);
+  }, [data]);
 
   const addToText = (val) => {
     setText((text) => [...text, val]);
@@ -37,12 +47,7 @@ const Calculator = () => {
         op = "div";
     }
 
-    fetch(`http://localhost:8080?a=${a}&b=${b}&op=${op}`)
-      .then((res) => res.json())
-      .then((data) => setResult(data.c))
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(calculate({ a, b, op }));
   };
 
   const resetInput = () => {
