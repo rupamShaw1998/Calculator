@@ -1,4 +1,4 @@
 # Calculator
 Calculator App using MERN stack
 
-<img src=image.png />
+<img src='./src/assets/CalculatorApp.jpeg' />
